@@ -166,6 +166,17 @@
 # profile = skill()
 # print(profile)
 
+# class Skill:
+#     def __init__(self):
+#         self.skills = ["css, java, python"]
+#     def __str__(self):
+#         return f"my skills are {self.skills}"
+#     def __len__(self):
+#         return len(self.skills)
+# print(len(Skill()))
+# print(Skill())
+
+
 # mems = ["amine", 20, True]
 # print(f"his name is {mems[0]} he's {mems[1]}, he consider himself as a {mems[2]}")
 # for index in mems:
