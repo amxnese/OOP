@@ -6,7 +6,7 @@ class Item:
     def __init__(self,name,price,quantity):
         assert price >= 0, f"{price} should be greater than zero"
         assert quantity >= 0, f"{quantity} should be greater than zero"
-        self.__price = price
+        self.price = price
         self.quantity = quantity
         self.name = name
         Item.all.append(self)
@@ -51,3 +51,9 @@ class phone(Item):
             return self.price + other.price
         else:
             return NotImplemented
+        
+class laptop(Item):
+    def __init__(self,name,price,quantity,CPU):
+        super().__init__(name,price,quantity)
+        self.CPU = CPU
+my_laptop = laptop("lenovo",499,1,"core i5")
