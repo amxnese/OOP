@@ -1,22 +1,24 @@
 class user():
-    @staticmethod
-    def say_hello():
-        return f"welcome to this fucked up class"
-    not_allowed_names = ["hell", "shit", "punk"]
-    users_num = 0 
-    @classmethod
-    def show_users_num(cls):
-        return f"we have {cls.users_num} users in our system"
-    def getName(self):
-        return f"{self.name}"
-    def setName(self, newName):
-        self.name = newName
-    def __init__(self, first_name,age, job, sex):
-        self.name = first_name
+    users_num = 0
+    def __init__(self, name,age, job, sex):
+        self._name = name
         self.age = age
         self.job = job
         self.sex = sex
         user.users_num += 1
+    @staticmethod
+    def say_hello():
+        return f"welcome to this fucked up class"
+    not_allowed_names = ["hell", "shit", "punk","hitler"]
+    @classmethod
+    def show_users_num(cls):
+        return f"we have {cls.users_num} users in our system"
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def name(self, newName):
+        self._name = newName
     def fullInfo(self):
         if self.name in user.not_allowed_names:
             raise ValueError("name not allowed")
@@ -27,7 +29,7 @@ class user():
             return f"hello mr {self.name}"
         else:
             return f"hello mrs {self.name}"
-user1 = user("amine",20,"male")
+user1 = user("amine",20,"doctor","male")
 user1.show_users_num()
 print(user.say_hello())
 print(user.users_num)
